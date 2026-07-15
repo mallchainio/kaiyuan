@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>开元棋牌 - 全面进入加密世界</title>
+
+
+<style>
+
+*{
+    box-sizing:border-box;
+}
+
+
+body{
+
+    margin:0;
+
+    min-height:100vh;
+
+    background:#111;
+
+}
+
+
+
+/* iframe区域 */
+
+.game-frame{
+
+    width:100%;
+
+    height:100vh;
+
+}
+
+
+
+iframe{
+
+    width:100%;
+
+    height:100%;
+
+    border:0;
+
+}
+
+
+
+
+
+
+/* 弹层 */
+
+.ca-mask{
+
+
+    position:fixed;
+
+
+    inset:0;
+
+
+    display:none;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+
+    background:
+
+    rgba(0,0,0,.75);
+
+
+
+    z-index:9999;
+
+
+    padding:20px;
+
+
+}
+
+
+
+.ca-mask.show{
+
+    display:flex;
+
+}
+
+
+
+
+
+/* CA盒子 */
+
+
+.ca-box{
+
+
+    width:420px;
+
+
+    max-width:100%;
+
+
+    background:
+
+
+    linear-gradient(
+        145deg,
+        #181818,
+        #050505
+    );
+
+
+
+    border-radius:20px;
+
+
+    border:2px solid #d5aa42;
+
+
+
+    padding:30px;
+
+
+
+    position:relative;
+
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 0 40px rgba(255,200,80,.5);
+
+
+
+}
+
+
+
+/*关闭*/
+
+
+.close{
+
+
+    position:absolute;
+
+
+    right:15px;
+
+
+    top:15px;
+
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+
+    border-radius:50%;
+
+
+
+    border:none;
+
+
+
+    background:#b00000;
+
+
+
+    color:white;
+
+
+
+    font-size:25px;
+
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+
+.title{
+
+
+    text-align:center;
+
+
+    color:#ffd45c;
+
+
+    font-size:28px;
+
+
+    font-weight:bold;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+.ca{
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+    align-items:center;
+
+
+    background:#111;
+
+
+    border-radius:10px;
+
+
+    padding:12px;
+
+
+    border:1px solid #80601f;
+
+
+}
+
+
+
+
+.address{
+
+
+    flex:1;
+
+
+    overflow:hidden;
+
+
+    white-space:nowrap;
+
+
+    text-overflow:ellipsis;
+
+
+    color:#ddd;
+
+
+}
+
+
+
+.copy{
+
+
+    width:42px;
+
+
+    height:42px;
+
+
+    border:0;
+
+
+    border-radius:10px;
+
+
+    background:#d7a83d;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.enter{
+
+
+    margin-top:25px;
+
+
+    display:block;
+
+
+    text-align:center;
+
+
+    padding:14px;
+
+
+
+    background:#b90000;
+
+
+    border-radius:12px;
+
+
+    color:white;
+
+
+    text-decoration:none;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+@media(max-width:600px){
+
+
+.ca-box{
+
+
+    padding:20px;
+
+}
+
+
+
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="game-frame">
+
+
+<iframe
+
+id="game" src="https://www.kaiyqprovodz30.cc/#/game?shareName=562dd1189&proxyAccount=&gameId=0"
+
+></iframe>
+
+
+</div>
+
+
+
+
+
+<!-- CA弹层 -->
+
+
+<div class="ca-mask" id="caMask">
+
+
+<div class="ca-box">
+
+
+<button class="close" onclick="closeCA()">
+
+×
+
+</button>
+
+
+
+<div class="title">
+
+开元 CA
+
+</div>
+
+
+
+
+<div class="ca">
+
+
+<div class="address" id="address">
+
+
+0x05405738de97f992b2ec6078792092df9791ffff
+
+
+</div>
+
+
+
+<button class="copy" onclick="copyCA()">
+
+📋
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+let frame=document.getElementById("game");
+
+
+
+frame.onload=function(){
+
+
+setTimeout(()=>{
+
+
+document
+.getElementById("caMask")
+.classList.add("show");
+
+
+
+},500);
+
+
+};
+
+
+
+
+function closeCA(){
+
+
+document
+.getElementById("caMask")
+.classList.remove("show");
+
+
+}
+
+
+
+
+function copyCA(){
+
+
+navigator.clipboard.writeText(
+
+document.getElementById("address").innerText
+
+);
+
+
+alert("CA 已复制");
+
+
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
