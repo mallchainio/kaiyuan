@@ -40,7 +40,6 @@ body{
 }
 
 
-
 iframe{
 
     width:100%;
@@ -53,49 +52,25 @@ iframe{
 
 
 
-
-
-
-/* 弹层 */
+/* CA弹层 */
 
 .ca-mask{
 
-
     position:fixed;
-
 
     inset:0;
 
-
-    display:none;
-
+    display:flex;
 
     justify-content:center;
 
-
     align-items:center;
 
-
-
-    background:
-
-    rgba(0,0,0,.75);
-
-
+    background:rgba(0,0,0,.75);
 
     z-index:9999;
 
-
     padding:20px;
-
-
-}
-
-
-
-.ca-mask.show{
-
-    display:flex;
 
 }
 
@@ -104,7 +79,6 @@ iframe{
 
 
 /* CA盒子 */
-
 
 .ca-box{
 
@@ -117,13 +91,11 @@ iframe{
 
     background:
 
-
     linear-gradient(
         145deg,
         #181818,
         #050505
     );
-
 
 
     border-radius:20px;
@@ -132,13 +104,10 @@ iframe{
     border:2px solid #d5aa42;
 
 
-
     padding:30px;
 
 
-
     position:relative;
-
 
 
     color:white;
@@ -149,52 +118,40 @@ iframe{
     0 0 40px rgba(255,200,80,.5);
 
 
-
 }
 
 
 
-/*关闭*/
-
+/*关闭按钮*/
 
 .close{
 
 
     position:absolute;
 
-
     right:15px;
-
 
     top:15px;
 
 
-
     width:38px;
 
-
     height:38px;
-
 
 
     border-radius:50%;
 
 
-
     border:none;
-
 
 
     background:#b00000;
 
 
-
     color:white;
 
 
-
     font-size:25px;
-
 
 
     cursor:pointer;
@@ -305,10 +262,12 @@ iframe{
 
 
 
-.enter{
+/* Telegram按钮 */
+
+.telegram{
 
 
-    margin-top:25px;
+    margin-top:20px;
 
 
     display:block;
@@ -321,35 +280,62 @@ iframe{
 
 
 
-    background:#b90000;
+    background:
+
+    linear-gradient(
+        135deg,
+        #0088cc,
+        #006699
+    );
+
 
 
     border-radius:12px;
 
 
+
     color:white;
+
 
 
     text-decoration:none;
 
 
+
     font-weight:bold;
 
 
+
+    font-size:16px;
+
+
+
+    box-shadow:
+
+    0 0 20px rgba(0,136,204,.5);
+
+
 }
+
+
+
+.telegram:hover{
+
+    opacity:.85;
+
+}
+
 
 
 
 @media(max-width:600px){
 
 
-.ca-box{
+    .ca-box{
 
+        padding:20px;
 
-    padding:20px;
-
-}
-
+    }
 
 
 }
@@ -368,14 +354,11 @@ iframe{
 <div class="game-frame">
 
 
-<iframe
-
-id="game" src="https://www.kaiyqprovodz30.cc/#/game?shareName=562dd1189&proxyAccount=&gameId=0"
-
-></iframe>
+<iframe id="game"></iframe>
 
 
 </div>
+
 
 
 
@@ -412,9 +395,7 @@ id="game" src="https://www.kaiyqprovodz30.cc/#/game?shareName=562dd1189&proxyAcc
 
 <div class="address" id="address">
 
-
 0x05405738de97f992b2ec6078792092df9791ffff
-
 
 </div>
 
@@ -432,12 +413,24 @@ id="game" src="https://www.kaiyqprovodz30.cc/#/game?shareName=562dd1189&proxyAcc
 
 
 
+<a class="telegram"
+
+href="https://t.me/kaiyuan_bsc"
+
+target="_blank">
+
+✈️ 加入 Telegram 社区
+
+</a>
+
+
 
 
 </div>
 
 
 </div>
+
 
 
 
@@ -451,19 +444,21 @@ let frame=document.getElementById("game");
 
 
 
-frame.onload=function(){
+// 打开页面
+
+window.onload=function(){
+
+frame.src =
+        "https://www.kaiyqprovodz30.cc/#/game?shareName=562dd1189&proxyAccount=&gameId=0";
+    // 显示弹层
+
+    document
+    .getElementById("caMask")
+    .style.display="flex";
 
 
-setTimeout(()=>{
 
 
-document
-.getElementById("caMask")
-.classList.add("show");
-
-
-
-},500);
 
 
 };
@@ -471,12 +466,28 @@ document
 
 
 
+
+// iframe完成
+
+frame.onload=function(){
+
+
+    console.log("游戏加载完成");
+
+
+};
+
+
+
+
+
+
 function closeCA(){
 
 
-document
-.getElementById("caMask")
-.classList.remove("show");
+    document
+    .getElementById("caMask")
+    .style.display="none";
 
 
 }
@@ -484,17 +495,24 @@ document
 
 
 
+
+
 function copyCA(){
 
 
-navigator.clipboard.writeText(
-
-document.getElementById("address").innerText
-
-);
+    let text =
+    document.getElementById("address").innerText;
 
 
-alert("CA 已复制");
+
+    navigator.clipboard.writeText(text)
+    .then(()=>{
+
+
+        alert("CA 已复制");
+
+
+    });
 
 
 }
