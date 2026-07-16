@@ -325,7 +325,19 @@ iframe{
 
 }
 
+.ca-title{
 
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    color:#ffd45c;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+}
 
 
 @media(max-width:600px){
@@ -364,70 +376,56 @@ iframe{
 
 
 
+
 <!-- CA弹层 -->
-
-
 <div class="ca-mask" id="caMask">
 
+    <div class="ca-box">
 
-<div class="ca-box">
+        <button class="close" onclick="closeCA()">×</button>
 
+        <div class="title">
+            官方 CA
+        </div>
 
-<button class="close" onclick="closeCA()">
+        <!-- 开元 -->
+        <div class="ca-title">
+            🟡 开元 CA
+        </div>
 
-×
+        <div class="ca">
+            <div class="address" id="ca1">
+                0x05405738de97f992b2ec6078792092df9791ffff
+            </div>
 
-</button>
+            <button class="copy" onclick="copyCA('ca1')">
+                📋
+            </button>
+        </div>
 
+        <!-- Kaiyuan -->
+        <div class="ca-title">
+            🔴 Kaiyuan CA
+        </div>
 
+        <div class="ca">
+            <div class="address" id="ca2">
+                0xe3e20b27e3094dff653e6495b98029a59dd4ffff
+            </div>
 
-<div class="title">
+            <button class="copy" onclick="copyCA('ca2')">
+                📋
+            </button>
+        </div>
 
-开元 CA
+        <a
+            class="telegram"
+            href="https://t.me/kaiyuan_bsc"
+            target="_blank">
+            ✈️ 加入 Telegram 社区
+        </a>
 
-</div>
-
-
-
-
-<div class="ca">
-
-
-<div class="address" id="address">
-
-0xe3e20b27e3094dff653e6495b98029a59dd4ffff
-
-</div>
-
-
-
-<button class="copy" onclick="copyCA()">
-
-📋
-
-</button>
-
-
-</div>
-
-
-
-
-<a class="telegram"
-
-href="https://t.me/kaiyuan_bsc"
-
-target="_blank">
-
-✈️ 加入 Telegram 社区
-
-</a>
-
-
-
-
-</div>
-
+    </div>
 
 </div>
 
@@ -496,24 +494,15 @@ function closeCA(){
 
 
 
+function copyCA(id){
 
-function copyCA(){
+    let text = document.getElementById(id).innerText;
 
-
-    let text =
-    document.getElementById("address").innerText;
-
-
-
-    navigator.clipboard.writeText(text)
-    .then(()=>{
-
+    navigator.clipboard.writeText(text).then(function(){
 
         alert("CA 已复制");
 
-
     });
-
 
 }
 
